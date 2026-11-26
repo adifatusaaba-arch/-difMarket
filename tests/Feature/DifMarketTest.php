@@ -195,22 +195,22 @@ class DifMarketTest extends TestCase
 
         // Create
         $this->post(route('admin.categories.store'), [
-            'name' => 'Aksesoris & Souvenir',
-            'description' => 'Beragam souvenir pernikahan dan aksesoris lokal.',
+            'name' => 'Alat Tulis & Kreatif',
+            'description' => 'Beragam perlengkapan tulis dan buku catatan lokal.',
         ])->assertRedirect(route('admin.categories.index'));
 
-        $category = Category::where('slug', 'aksesoris-souvenir')->firstOrFail();
+        $category = Category::where('slug', 'alat-tulis-kreatif')->firstOrFail();
 
         // Update
         $this->put(route('admin.categories.update', $category), [
-            'name' => 'Souvenir & Hadiah',
-            'description' => 'Paket hampers dan souvenir UMKM.',
+            'name' => 'Alat Tulis & Kertas Daur Ulang',
+            'description' => 'Buku dan perlengkapan kantor ramah lingkungan.',
         ])->assertRedirect(route('admin.categories.index'));
 
         $this->assertDatabaseHas('categories', [
             'id' => $category->id,
-            'name' => 'Souvenir & Hadiah',
-            'slug' => 'souvenir-hadiah',
+            'name' => 'Alat Tulis & Kertas Daur Ulang',
+            'slug' => 'alat-tulis-kertas-daur-ulang',
         ]);
 
         // Delete
