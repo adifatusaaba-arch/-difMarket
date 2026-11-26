@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 class CategorySeeder extends Seeder
 {
     /**
-     * Isi 5 kategori produk UMKM unggulan.
+     * Isi minimal 5 kategori produk UMKM unggulan.
      */
     public function run(): void
     {
@@ -37,6 +37,11 @@ class CategorySeeder extends Seeder
                 'name' => 'Perawatan & Herbal',
                 'slug' => 'perawatan-herbal',
                 'description' => 'Sabun alami, minyak esensial, lulur tradisional, dan jamu herbal higienis berbahan alami.',
+            ],
+            [
+                'name' => 'Aksesoris & Souvenir',
+                'slug' => 'aksesoris-souvenir',
+                'description' => 'Paket hampers, souvenir ramah lingkungan, gantungan kunci etnik, dan pernak-pernik handmade.',
             ],
         ];
 

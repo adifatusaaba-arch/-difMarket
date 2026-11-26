@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductSeeder extends Seeder
 {
     /**
-     * Isi produk contoh UMKM beserta gambar nyata di public storage.
+     * Isi 10 produk contoh UMKM beserta gambar nyata di public storage.
      */
     public function run(): void
     {
@@ -88,6 +88,16 @@ class ProductSeeder extends Seeder
                 'badge' => 'KOPI',
             ],
             [
+                'category_slug' => 'kopi-minuman',
+                'name' => 'Wedang Uwuh Rempah Tradisional Box',
+                'slug' => 'wedang-uwuh-rempah-tradisional-box',
+                'description' => "Minuman herbal hangat khas Yogyakarta berisi jahe emprit kering, kayu secang, cengkeh, pala, daun kayu manis, dan gula batu.\n\nSatu kotak berisi 10 sachet siap seduh untuk menjaga kehangatan dan daya tahan tubuh.",
+                'price' => 45000,
+                'stock' => 35,
+                'palette' => [[180, 72, 64], [255, 159, 67]],
+                'badge' => 'MINUMAN',
+            ],
+            [
                 'category_slug' => 'perawatan-herbal',
                 'name' => 'Sabun Organik Madu & Sereh Wangi',
                 'slug' => 'sabun-organik-madu-sereh-wangi',
@@ -96,6 +106,16 @@ class ProductSeeder extends Seeder
                 'stock' => 60,
                 'palette' => [[72, 168, 136], [108, 74, 182]],
                 'badge' => 'HERBAL',
+            ],
+            [
+                'category_slug' => 'aksesoris-souvenir',
+                'name' => 'Paket Hampers Bambu Etnik Nusantara',
+                'slug' => 'paket-hampers-bambu-etnik-nusantara',
+                'description' => "Set hampers eksklusif dalam besek bambu pita elegan berisi tumbler kayu, pouch tenun mini, dan kartu ucapan kustom.\n\nIdeal sebagai hadiah perusahaan, acara wisuda, maupun bingkisan hari raya yang mendukung pengrajin lokal.",
+                'price' => 149000,
+                'stock' => 20,
+                'palette' => [[108, 74, 182], [255, 159, 67]],
+                'badge' => 'SOUVENIR',
             ],
         ];
 
@@ -147,7 +167,6 @@ class ProductSeeder extends Seeder
         $img = imagecreatetruecolor($width, $height);
         imagealphablending($img, true);
 
-        // Smooth vertical-diagonal gradient background
         for ($y = 0; $y < $height; $y++) {
             $ratio = $y / $height;
             $r = (int) round($primaryRgb[0] * (1 - $ratio) + $secondaryRgb[0] * $ratio);
@@ -157,17 +176,14 @@ class ProductSeeder extends Seeder
             imageline($img, 0, $y, $width, $y, $lineColor);
         }
 
-        // Soft decorative translucent circles
         $circle1 = imagecolorallocatealpha($img, 255, 255, 255, 108);
         $circle2 = imagecolorallocatealpha($img, 255, 255, 255, 114);
         imagefilledellipse($img, 650, 120, 340, 340, $circle1);
         imagefilledellipse($img, 140, 500, 280, 280, $circle2);
 
-        // Center showcase card
         $cardBg = imagecolorallocatealpha($img, 255, 255, 255, 18);
         imagefilledrectangle($img, 90, 110, 710, 490, $cardBg);
 
-        // Accent bar inside card
         $accentColor = imagecolorallocate($img, 255, 159, 67);
         $purpleColor = imagecolorallocate($img, 108, 74, 182);
         $darkText = imagecolorallocate($img, 32, 36, 58);
@@ -176,21 +192,17 @@ class ProductSeeder extends Seeder
 
         imagefilledrectangle($img, 90, 110, 710, 122, $accentColor);
 
-        // Badge pill
         imagefilledrectangle($img, 130, 160, 290, 200, $purpleColor);
         imagestring($img, 5, 152, 172, $badge, $white);
 
-        // Brand tag on top right of card
         imagestring($img, 5, 560, 172, '@difMarket', $purpleColor);
 
-        // Decorative product emblem circle
         $softCircle = imagecolorallocate($img, 243, 238, 255);
         imagefilledellipse($img, 400, 285, 130, 130, $softCircle);
         imagefilledellipse($img, 400, 285, 84, 84, $purpleColor);
         imagefilledellipse($img, 435, 250, 26, 26, $accentColor);
         imagestring($img, 5, 391, 277, 'UMKM', $white);
 
-        // Centered wrapped product title
         $wrapped = wordwrap($title, 34, "\n");
         $lines = array_slice(explode("\n", $wrapped), 0, 2);
         $startY = 378;
