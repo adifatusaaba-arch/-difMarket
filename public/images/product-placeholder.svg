@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#F3EEFF"/>
+  <circle cx="660" cy="120" r="140" fill="#6C4AB6" fill-opacity="0.08"/>
+  <circle cx="140" cy="480" r="120" fill="#FF9F43" fill-opacity="0.14"/>
+  <rect x="310" y="210" width="180" height="160" rx="28" fill="#6C4AB6"/>
+  <path d="M360 225C360 202.909 377.909 185 400 185C422.091 185 440 202.909 440 225" stroke="#6C4AB6" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="400" cy="290" r="36" fill="#FFFFFF"/>
+  <circle cx="475" cy="225" r="18" fill="#FF9F43"/>
+  <text x="400" y="430" text-anchor="middle" fill="#20243A" font-family="sans-serif" font-size="26" font-weight="700">@difMarket UMKM</text>
+</svg>
